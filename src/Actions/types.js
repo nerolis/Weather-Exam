@@ -1,0 +1,3 @@
+export const FETCH_WEATHER = 'FETCH_WEATHER';
+export const FETCH_LOCATION = 'FETCH_LOCATION';
+export const CITY_DELETED = 'CITY_DELETED';
