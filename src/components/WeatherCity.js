@@ -1,19 +1,19 @@
+// Modules
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Form, Input, Message, Card, Icon, Image, Header, Table, Checkbox} from 'semantic-ui-react'
-import { removeCity } from '../Actions/test';
-import {intlShape, injectIntl, defineMessages, FormattedMessage, FormattedRelative} from 'react-intl'
+import { Button, Form, Input, Message, Card, Icon, Image, Header, Table, Checkbox } from 'semantic-ui-react';
+import { intlShape, injectIntl, defineMessages, FormattedMessage, FormattedRelative } from 'react-intl'
+// Components
 class WeatherCity extends React.Component {
     constructor() {
         super()
-        this.state = {KelvinTo: true}
+        this.state = { KelvinTo: true } 
     }
     toggle = () => this.setState({ KelvinTo: !this.state.KelvinTo })
+    
     render() {
-    const {formatMessage} = this.props.intl;
-    const {weather, removeCity} = this.props
-    const {KelvinTo} = this.state;
-
+    const { weather, removeCity, } = this.props
+    const { KelvinTo } = this.state;
         return(
         <Table inverted>
             <Table.Header>
@@ -39,7 +39,7 @@ class WeatherCity extends React.Component {
                             </Table.HeaderCell>
                             
                                 <Table.HeaderCell>
-                             <FormattedMessage
+                                     <FormattedMessage
                                         id={ 'Search.Weather' }
                                         defaultMessage={ 'Weather' }
                                         />
@@ -62,7 +62,7 @@ class WeatherCity extends React.Component {
                             </Table.Footer>
                             <Button inverted size='mini' onClick={() => removeCity(weather.id)}><FormattedMessage id={ 'Search.Delete' } defaultMessage={ 'Delete' }/></Button>
                         </Table>
-                        )
-}
+     )
+  }
 }
 export default injectIntl(WeatherCity)

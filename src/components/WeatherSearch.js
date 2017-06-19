@@ -1,14 +1,11 @@
+// Modules
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Form, Input, Message } from 'semantic-ui-react'
-import fetchWheater from '../Actions/weatherAction';
 import {intlShape, injectIntl, defineMessages, FormattedMessage} from 'react-intl';
-const messages = defineMessages({
-    SearchInput: {
-        id: 'Search.Input',
-        defaultMessage: 'Search by city name',
-    },
-});
+// Actions
+import fetchWheater from '../Actions/weatherAction';
+// Components
 class WeatherSearch extends React.Component {
     constructor() {
     super()
@@ -18,17 +15,16 @@ class WeatherSearch extends React.Component {
       error: {},
       invalid: false,
     }
-      
-   
     this.onChange = this.onChange.bind(this);
-    
     this.onSubmit = this.onSubmit.bind(this);
 };
       onChange(e) {
       this.setState({ [e.target.name]: e.target.value });
-      };
+    };
+    
         onSubmit(e) {
        e.preventDefault();
+        // Validation
         let error = {};
         if (this.state.temp === '') error.temp = "Can't be empty";
         this.setState({ error });
@@ -37,12 +33,12 @@ class WeatherSearch extends React.Component {
             this.setState({ loading: true });
               this.props.fetchWheater(this.state.temp)
                 this.setState({temp: ''})
-      };
+        };
        }  
         render() {
-          const {formatMessage} = this.props.intl;
+          const { formatMessage } = this.props.intl;
           const { temp, error, isLoading, invalid} = this.state;
-          const {onSubmit} = this.props;
+          const { onSubmit } = this.props;
             return(
               <Form onSubmit={this.onSubmit}>
                 <Input error={false} type='text' placeholder={formatMessage(messages.SearchInput)} value={temp} onChange={this.onChange} name='temp' />
@@ -51,5 +47,11 @@ class WeatherSearch extends React.Component {
 
  )};
 };
-
+// sort of FormattedMessage. For placeholder in input. 
+const messages = defineMessages({
+    SearchInput: {
+        id: 'Search.Input',
+        defaultMessage: 'Search by city name',
+    },
+});
 export default injectIntl(connect(null, {fetchWheater})(WeatherSearch));

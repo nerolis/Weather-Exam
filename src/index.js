@@ -5,14 +5,14 @@ import { Provider} from 'react-redux';
 import reduxThunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom'; 
 import { createStore, applyMiddleware, compose } from 'redux';
-// Reducers
-import { loadState, saveState} from './LocalStorage';
+// Reducers/ Utils
+import { loadState, saveState } from './Utils/LocalStorage';
 import rootReducer from './reducers/rootReducer';
 // Components
 import LocalesMenu from './components/Navigation/LocalesMenu';
-// Our translated strings
 
 const persistedState = loadState();
+
 const store = createStore(
   rootReducer,
   persistedState,
@@ -21,7 +21,6 @@ const store = createStore(
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )
 );
-
 
 store.subscribe(() => {
  saveState({

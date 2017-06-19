@@ -1,22 +1,22 @@
    // Modules
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { FormattedDate, FormattedRelative } from 'react-intl'
+import { intlShape, injectIntl, defineMessages, FormattedMessage } from 'react-intl';
 // Components
-import {Segment, Statistic, Image, Checkbox, Card, Label, Icon, Button} from 'semantic-ui-react'
+import { Segment, Statistic, Image, Checkbox, Card, Label, Icon, Button } from 'semantic-ui-react'
 // Actions
-import fetchLocation from '../Actions/locationAction';
-import {FormattedDate, FormattedRelative} from 'react-intl'
-import {intlShape, injectIntl, defineMessages, FormattedMessage} from 'react-intl'; 
-   class Main extends React.Component {
-  constructor() {
-    super()
-    this.state = {KelvinTo: true} 
+import fetchLocation from '../Actions/locationAction'; 
+   class WeatherByLocation extends React.Component {
+    constructor() {
+      super()
+      this.state = {KelvinTo: true} 
 } 
     toggle = () => this.setState({ KelvinTo: !this.state.KelvinTo })
+  
     render() {
-    const {location} = this.props
-    const {KelvinTo} = this.state
-    
+    const { location } = this.props
+    const { KelvinTo } = this.state
      return(
         <Segment.Group>
             <Segment.Group>
@@ -44,4 +44,4 @@ import {intlShape, injectIntl, defineMessages, FormattedMessage} from 'react-int
 
     )}
  }  
-export default injectIntl(connect(null, {fetchLocation})(Main));
+export default injectIntl(connect(null, {fetchLocation})(WeatherByLocation));
