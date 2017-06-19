@@ -2,20 +2,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 // Components
-import {Segment, Statistic, Image} from 'semantic-ui-react'
-import {FormattedTime} from 'react-intl';
+import {Segment, Statistic, Image, Checkbox, Card, Label, Icon, Button} from 'semantic-ui-react'
+import WeatherByLocationView from './WeatherByLocationView';
 // Actions
 import fetchLocation from '../Actions/locationAction';
+import {FormattedDate, FormattedRelative} from 'react-intl'
+import {intlShape, injectIntl, defineMessages, FormattedMessage} from 'react-intl';
 class Main extends React.Component {
-  constructor() {
-    super()
-    this.state = { unreadCount: 1000, name: 'Elric'}
-    
-  }
     componentWillMount() {
-     this.getLocation()
-  }
-    getLocation() {
+      this.getLocation()
+    }
+    
+   getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
       this.geoLocationSucces, 
@@ -23,40 +21,32 @@ class Main extends React.Component {
       );
     }; 
  }
+ 
    geoLocationError = (error) => {
      if (error) {
-     console.log('error')
+     return <Segment>Error, something went wrong</Segment>
     };
   }
+
    geoLocationSucces = (position) => {
     const { coords } = position;
     this.props.fetchLocation(coords.latitude, coords.longitude)
     ;}
-    renderGeoLocation(location) {
-      return(
-        
-        <Segment key={location.id} inverted>
-     
-        <Segment compact inverted color='teal'>{location.name}</Segment>
-        <Statistic inverted label='Temp' value={`°${location.main.temp}`} />
-         <Image src={`http://openweathermap.org/img/w/${location.weather[0].icon}.png`} size='small' />
-        <Statistic inverted color='blue' value={location.weather[0].description} />
-         <Segment inverted><FormattedTime value={new Date(location.dt)}/></Segment>
-        </Segment>
-        )
-    }
-    render() {
-                const {name, unreadCount} = this.state;
-    return(
-        <div>
-        {this.props.location.map(this.renderGeoLocation)}
-        </div>
-        )}
-
+    
+    
+     render() {
+       const { location } = this.props
+         return (
+         <div>
+         {this.props.location.map(location => <WeatherByLocationView location={location} key={location.id} />)} 
+         </div>
+         )
+  }  
 }
+
 const mapStateToProps = (state) => {
     return {
         location: state.location
     };
 };
-export default connect(mapStateToProps, {fetchLocation})(Main);
+export default injectIntl(connect(mapStateToProps, {fetchLocation})(Main));

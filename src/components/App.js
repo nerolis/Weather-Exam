@@ -8,9 +8,10 @@ import WeatherSearch from './WeatherSearch';
 import WeatherList from './WeatherList';
 import { Container, Grid, Divided, Segment} from 'semantic-ui-react';
 import WeatherByLocation from './WeatherByLocation';
-const App = () => (
+class App extends React.Component {
+  render() {
+    return (
 <Container>
-     <LocalesMenu />
    <Grid columns={3}>
     <Grid.Row stretched>
       <Grid.Column>
@@ -23,7 +24,9 @@ const App = () => (
       <Grid.Column>
       </Grid.Column>
     </Grid.Row>
-  </Grid>    
-</Container>
+    </Grid>    
+  </Container>
 )
+  }
+}
 export default App;

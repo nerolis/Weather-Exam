@@ -1,0 +1,22 @@
+[
+  {
+    "id": "Search.City",
+    "defaultMessage": "City"
+  },
+  {
+    "id": "Search.Date",
+    "defaultMessage": "Date"
+  },
+  {
+    "id": "Search.Temp",
+    "defaultMessage": "Temp"
+  },
+  {
+    "id": "Search.Weather",
+    "defaultMessage": "Weather"
+  },
+  {
+    "id": "Search.Delete",
+    "defaultMessage": "Delete"
+  }
+]

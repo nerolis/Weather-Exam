@@ -6,9 +6,9 @@ import axios from 'axios';
       data
     }
   }
-export default function fetchLocation(latitude, longitude ) {
+export default function fetchLocation(latitude, longitude) {
 return dispatch => {
-    axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=cf0b555fb4c46b8a845bc93e9af30122`, {mode: 'cors'})
+    axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=cf0b555fb4c46b8a845bc93e9af30122`, {mode: 'cors'})
      .then(response => { dispatch(setLocation(response.data))
          
    })

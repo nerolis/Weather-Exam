@@ -1,0 +1,10 @@
+[
+  {
+    "id": "Search.Input",
+    "defaultMessage": "Search by city name"
+  },
+  {
+    "id": "Search.Button",
+    "defaultMessage": "Execute"
+  }
+]

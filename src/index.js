@@ -9,14 +9,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { loadState, saveState} from './LocalStorage';
 import rootReducer from './reducers/rootReducer';
 // Components
-import {addLocaleData, IntlProvider} from 'react-intl';
-import en from 'react-intl/locale-data/en';
-import ru from 'react-intl/locale-data/ru';
-import App from './components/App';
+import LocalesMenu from './components/Navigation/LocalesMenu';
 // Our translated strings
-// import localeData from './data.json';
-addLocaleData([...en, ...ru]);
-
 
 const persistedState = loadState();
 const store = createStore(
@@ -28,16 +22,16 @@ const store = createStore(
   )
 );
 
+
 store.subscribe(() => {
  saveState({
-  weather: store.getState().weather})
+  weather: store.getState().weather,
+  })
 })
 ReactDOM.render(
    <BrowserRouter>
   <Provider store={store}>
-  <IntlProvider locale='ru'>
-    <App/>
-  </IntlProvider>
+    <LocalesMenu/>
   </Provider>
  </BrowserRouter>, document.getElementById('root') 
 );

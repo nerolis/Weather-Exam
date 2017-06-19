@@ -1,0 +1,11 @@
+{ "ru": {
+  "Search.City": "Город",
+  "Search.Date": "Время",
+  "Search.Temp": "Температура",
+  "Search.Weather": "Погода",
+  "Search.Input": "Поиск по имени города",
+  "Search.Button": "Поиск",
+  "Search.Delete": "Удалить",
+  "Search.Temp.Button": "Температура"
+} }
+
