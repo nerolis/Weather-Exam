@@ -3,7 +3,7 @@ import weather from './weatherReducer';
 import location from './locationReducer';
 const rootReducer = combineReducers({
   weather,
-  location,
+  location, 
 });
 
 export default rootReducer;

@@ -6,6 +6,7 @@
   "Search.Input": "Поиск по имени города",
   "Search.Button": "Поиск",
   "Search.Delete": "Удалить",
-  "Search.Temp.Button": "Температура"
+  "Search.Temp.Button": "Температура",
+  "City.List.isEmpty": "Список городов пуст."
 } }
 

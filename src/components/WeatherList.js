@@ -6,10 +6,22 @@ import { intlShape, injectIntl, defineMessages, FormattedMessage } from 'react-i
 import removeCity  from '../Actions/removeCity';
 // Components
 import WeatherCity from './WeatherCity';
+import { Message } from 'semantic-ui-react';
 class WeatherList extends React.Component {
+     
+     ifCityListisEmpty() {
+     if (this.props.weather.length === 0) {
+       return (
+        <Message negative> <FormattedMessage id={ 'City.List.isEmpty' } defaultMessage={ 'City list is empty.' } /> </Message>
+       )
+     }
+     }
+    
     render() {
      const {weather, removeCity} = this.props
-        return( <div> {weather.map(weather => <WeatherCity weather={weather} key={weather.id} removeCity={removeCity}  />)} </div> )
+        return( <div> 
+        {this.ifCityListisEmpty()}
+        {weather.map(weather => <WeatherCity weather={weather} key={weather.id} removeCity={removeCity}  />)} </div> )
     }
  }
 

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link, Route} from 'react-router-dom';
 import { mainstyle } from './main.scss';
-import { Container, Grid } from 'semantic-ui-react';
+import { Container, Grid, } from 'semantic-ui-react';
 // Components
 import LocalesMenu from './Navigation/LocalesMenu';
 import WeatherSearch from './WeatherSearch';
@@ -11,7 +11,7 @@ import WeatherByLocation from './WeatherByLocation';
 const App = () => (
     <Container>
       <Grid columns={3}>
-       <Grid.Row stretched>
+      
           <Grid.Column> 
             <WeatherByLocation />
              </Grid.Column>
@@ -19,10 +19,11 @@ const App = () => (
                    <WeatherList />
                    <WeatherSearch />
                 </Grid.Column>
-              <Grid.Column>
-            </Grid.Column>
-       </Grid.Row>
+       
+  
       </Grid>    
     </Container>
 )
+  
+
 export default App;

@@ -15,35 +15,28 @@ class WeatherCity extends React.Component {
     const { weather, removeCity, } = this.props
     const { KelvinTo } = this.state;
         return(
-        <Table inverted>
+        <Table basic >
             <Table.Header>
             <Table.Row>
                 <Table.HeaderCell>
                     <FormattedMessage
                         id={ 'Search.City' }
-                        defaultMessage={ 'City' }
-                        />
-            </Table.HeaderCell>
-                <Table.HeaderCell>
-                <FormattedMessage
+                        defaultMessage={ 'City' } />
+                 </Table.HeaderCell>
+                   <Table.HeaderCell>
+                      <FormattedMessage
                         id={ 'Search.Date' }
-                        defaultMessage={ 'Date' }
-                        />
-                </Table.HeaderCell>
+                        defaultMessage={ 'Date' } />
+                   </Table.HeaderCell>
                      <Table.HeaderCell>
-                            <Button  inverted size='small'  onClick={this.toggle}>
+                        <Button  inverted size='small'  onClick={this.toggle}><FormattedMessage id={ 'Search.Temp' }defaultMessage={ 'Temp' } /> </Button>
+                    </Table.HeaderCell>
+                        <Table.HeaderCell>
                             <FormattedMessage
-                                id={ 'Search.Temp' }
-                                defaultMessage={ 'Temp' }
-                                /></Button>
-                            </Table.HeaderCell>
-                            
-                                <Table.HeaderCell>
-                                     <FormattedMessage
-                                        id={ 'Search.Weather' }
-                                        defaultMessage={ 'Weather' }
-                                        />
-                                    </Table.HeaderCell>
+                                id={ 'Search.Weather' }
+                                defaultMessage={ 'Weather' }
+                                />
+                        </Table.HeaderCell>
                             </Table.Row>
                             </Table.Header>
                             <Table.Body>
@@ -60,8 +53,8 @@ class WeatherCity extends React.Component {
                             <Table.Row>
                             </Table.Row>
                             </Table.Footer>
-                            <Button inverted size='mini' onClick={() => removeCity(weather.id)}><FormattedMessage id={ 'Search.Delete' } defaultMessage={ 'Delete' }/></Button>
-                        </Table>
+                        <Button inverted size='mini' onClick={() => removeCity(weather.id)}><FormattedMessage id={ 'Search.Delete' } defaultMessage={ 'Delete' }/></Button>
+                    </Table>
      )
   }
 }

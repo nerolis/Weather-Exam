@@ -7,6 +7,7 @@ import { connect} from 'react-redux';
 import { addLocaleData, IntlProvider } from 'react-intl';
 // Components
 import App from '../App';
+// Actions
 // Our translated
 import localeData from '../../../build/locales/data.json';
 import en from 'react-intl/locale-data/en';
@@ -15,15 +16,16 @@ addLocaleData([...en, ...ru])
 class LocalesMenu extends React.Component {
   constructor() {
     super();
-      this.state = {locale: 'en'};
+      this.state = {locale: 'en'}; // default language
     }
          render() {
          const intlData = { locale: this.state.locale,  messages: localeData[this.state.locale]};
          return (
-            // React-Intl энтри 
+            // React-Intl энтри, через роут передает всем остальным. Не хотелось засорять index.js.
           <IntlProvider key="intl" {...intlData}> 
              <div className="ui container">
-                <div className="ui basic small stackable  inverted three item   menu">
+             
+                <div className="ui secondar secondary  color   four item menu">
                     <Menu.Item >
                      <Link onClick={(() => this.setState({locale: 'en'}))} to='/#en'>En</Link>
                    </Menu.Item>    
@@ -44,4 +46,4 @@ class LocalesMenu extends React.Component {
   <Link className={match ? 'active item' : 'item'} to={to}>{label}</Link>
   )}/>
 );
-export default LocalesMenu;
+export default connect(null, )(LocalesMenu);

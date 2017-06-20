@@ -27,6 +27,7 @@ store.subscribe(() => {
   weather: store.getState().weather,
   })
 })
+
 ReactDOM.render(
    <BrowserRouter>
   <Provider store={store}>

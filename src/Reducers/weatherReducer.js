@@ -8,7 +8,7 @@ export default function weather(state= [], action = {}) {
         action.data
       ];
     case CITY_DELETED:
-      return state.filter(weather => weather.id !== action.weatherId) // Не мутация(?). 
+      return state.filter(weather => weather.id !== action.weatherId)
   } 
   return state;
 }
