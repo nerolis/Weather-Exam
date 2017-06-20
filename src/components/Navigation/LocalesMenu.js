@@ -24,8 +24,7 @@ class LocalesMenu extends React.Component {
             // React-Intl энтри, через роут передает всем остальным. Не хотелось засорять index.js.
           <IntlProvider key="intl" {...intlData}> 
              <div className="ui container">
-             
-                <div className="ui secondar secondary  color   four item menu">
+                <div className="ui secondar color blue inverted  four item menu">
                     <Menu.Item >
                      <Link onClick={(() => this.setState({locale: 'en'}))} to='/#en'>En</Link>
                    </Menu.Item>    

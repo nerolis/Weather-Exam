@@ -16,7 +16,7 @@ import ru from 'react-intl/locale-data/ru';
 addLocaleData([...en, ...ru])
 const app = Express()
 const port = 3000
-global.navigator = {
+global.navigator = { // иначе выдает ошибку, так как навигатора нет на ноде
   userAgent: 'node.js'
 };
 //Serve static files
@@ -33,7 +33,7 @@ import { renderToString } from 'react-dom/server'
 function handleRender(req, res) {
   // Create a new Redux store instance
   const store = createStore(rootReducer)
-   const intlData = { locale: 'en',  messages: localeData};
+  const intlData = { locale: 'en',  messages: localeData};
   // Render the component to a string
   const html = renderToString(
   <IntlProvider key="intl" {...intlData}> 

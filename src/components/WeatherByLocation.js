@@ -23,7 +23,7 @@ class WeatherByLocation extends React.Component {
    }; 
 }
    geoLocationError = (error) => {
-     if (error) {  return <Segment>Something went wrong with geolocation </Segment> }; }
+     if (error) return <Segment negative >Something went wrong with geolocation </Segment>  }
 
    geoLocationSucces = (position) => {
     const { coords } = position;
@@ -31,7 +31,11 @@ class WeatherByLocation extends React.Component {
   }
      render() {
        const { location } = this.props
-          return ( <div> {this.props.location.map(location => <WeatherByLocationView location={location} key={location.id} />)} </div> )
+          return ( 
+            <div> 
+            {this.geoLocationError()}
+            {this.props.location.map(location => <WeatherByLocationView location={location} key={location.id} />)} 
+            </div> )
   }  
 }
 

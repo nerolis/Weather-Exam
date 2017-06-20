@@ -15,7 +15,7 @@ class WeatherCity extends React.Component {
     const { weather, removeCity, } = this.props
     const { KelvinTo } = this.state;
         return(
-        <Table basic >
+        <Table color='blue' selectable  inverted size='large'  >
             <Table.Header>
             <Table.Row>
                 <Table.HeaderCell>
@@ -50,10 +50,10 @@ class WeatherCity extends React.Component {
                             </Table.Row>
                             </Table.Body>
                             <Table.Footer>
+                    <Button icon='close' inverted size='mini' onClick={() => removeCity(weather.id)}></Button>
                             <Table.Row>
                             </Table.Row>
                             </Table.Footer>
-                        <Button inverted size='mini' onClick={() => removeCity(weather.id)}><FormattedMessage id={ 'Search.Delete' } defaultMessage={ 'Delete' }/></Button>
                     </Table>
      )
   }

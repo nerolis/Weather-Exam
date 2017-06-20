@@ -14,9 +14,5 @@
   {
     "id": "Search.Weather",
     "defaultMessage": "Weather"
-  },
-  {
-    "id": "Search.Delete",
-    "defaultMessage": "Delete"
   }
 ]
