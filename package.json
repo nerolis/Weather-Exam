@@ -37,7 +37,6 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-dom-server": "0.0.5",
-    "react-google-maps": "^6.3.0",
     "react-intl": "^2.3.0",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
