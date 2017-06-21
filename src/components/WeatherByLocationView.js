@@ -18,7 +18,7 @@ import fetchLocation from '../Actions/locationAction';
     const { location } = this.props
     const { KelvinTo } = this.state
      return(
-        <Segment.Group >
+        <Segment.Group > 
              <Segment  size='massive' color='blue' inverted as='h1'>{location.name}</Segment>  
              <Button  size='massive' color='blue'   onClick={this.toggle}>{KelvinTo ? ` °C ${location.main.temp.toFixed(0) - 273}` : `°F ${Math.round(location.main.temp*9/5-460)}`}</Button>
              <Icon size='big' name='time'/><FormattedRelative value={location.dt*1000}/>  

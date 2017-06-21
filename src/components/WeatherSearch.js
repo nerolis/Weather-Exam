@@ -23,7 +23,7 @@ class WeatherSearch extends React.Component {
       this.setState({ [e.target.name]: e.target.value });
     };
     
-        onSubmit(e) {
+        onSubmit(e, lang) {
        e.preventDefault();
         // Validation
         let errors = {};
@@ -32,7 +32,8 @@ class WeatherSearch extends React.Component {
         const isValid = Object.keys(errors).length === 0
         if (isValid) {
              this.setState({ loading: true });
-              this.props.fetchWheater(this.state.temp)
+              lang = navigator.language
+              this.props.fetchWheater(this.state.temp, lang)
                 this.setState({temp: ''})
         };
        }  

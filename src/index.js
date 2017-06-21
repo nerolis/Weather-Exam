@@ -11,11 +11,14 @@ import rootReducer from './reducers/rootReducer';
 // Components
 import LocalesMenu from './components/Navigation/LocalesMenu';
 
-const persistedState = loadState();
+const preloadedState = window.__PRELOADED_STATE__
+delete window.__PRELOADED_STATE__
 
+const persistedState = loadState();
 const store = createStore(
   rootReducer,
   persistedState,
+  //preloadedState,
   compose(
     applyMiddleware(reduxThunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f

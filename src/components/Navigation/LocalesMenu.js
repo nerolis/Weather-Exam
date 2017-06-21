@@ -16,7 +16,7 @@ addLocaleData([...en, ...ru])
 class LocalesMenu extends React.Component {
   constructor() {
     super();
-      this.state = {locale: 'en'}; // default language
+      this.state = {locale: navigator.language};
     }
   
     // Восстановление стейта после релоада. Я, конечно, мог бы опять же, сделать через локалсторадж, либо просто через навигатор, но и так сойдет.
@@ -34,7 +34,7 @@ class LocalesMenu extends React.Component {
             // React-Intl энтри, через роут передает всем остальным. Не хотелось засорять index.js.
           <IntlProvider key="intl" {...intlData}> 
              <div className="ui container">
-                <div className="ui secondar color blue inverted  four item menu">
+                <div className="ui secondar color blue  inverted  four item menu">
                     <Menu.Item >
                      <Link onClick={(() => this.setState({locale: 'en'}))} to='/#en'>En</Link>
                    </Menu.Item>    
