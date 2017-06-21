@@ -18,7 +18,7 @@ class LocalesMenu extends React.Component {
     super();
       this.state = {locale: 'en'}; // default language
     }
-    
+  
     // Восстановление стейта после релоада. Я, конечно, мог бы опять же, сделать через локалсторадж, либо просто через навигатор, но и так сойдет.
      componentDidMount() {
       if (window.location.hash === '#ru') {
@@ -28,9 +28,6 @@ class LocalesMenu extends React.Component {
      }
 
       
-         
-        
-
          render() {
          const intlData = { locale: this.state.locale,  messages: localeData[this.state.locale]};
          return (

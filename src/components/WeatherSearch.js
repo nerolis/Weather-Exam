@@ -1,8 +1,8 @@
 // Modules
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Form, Input, Message } from 'semantic-ui-react'
-import {intlShape, injectIntl, defineMessages, FormattedMessage} from 'react-intl';
+import { Button, Form, Input, Message, Label } from 'semantic-ui-react'
+import { intlShape, injectIntl, defineMessages, FormattedMessage } from 'react-intl';
 // Actions
 import fetchWheater from '../Actions/weatherAction';
 // Components
@@ -10,10 +10,11 @@ class WeatherSearch extends React.Component {
     constructor() {
     super()
     this.state = {
-      isLoading: false, 
       temp: '',
-      error: {},
+      errors: {},
       invalid: false,
+      isLoading: false, 
+      error: false
     }
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -25,12 +26,12 @@ class WeatherSearch extends React.Component {
         onSubmit(e) {
        e.preventDefault();
         // Validation
-        let error = {};
-        if (this.state.temp === '') error.temp = "Can't be empty";
-        this.setState({ error });
-        const isValid = Object.keys(error).length === 0
-         if (isValid) {
-            this.setState({ loading: true });
+        let errors = {};
+        if (this.state.temp === '') this.setState({error: true})
+        this.setState({ errors });
+        const isValid = Object.keys(errors).length === 0
+        if (isValid) {
+             this.setState({ loading: true });
               this.props.fetchWheater(this.state.temp)
                 this.setState({temp: ''})
         };
@@ -40,8 +41,9 @@ class WeatherSearch extends React.Component {
           const { temp, error, isLoading, invalid} = this.state;
           const { onSubmit } = this.props;
             return(
+            
               <Form onSubmit={this.onSubmit}>
-                <Input error={false} type='text' placeholder={formatMessage(messages.SearchInput)} value={temp} onChange={this.onChange} name='temp' />
+                <Input error={error} type='text' placeholder={formatMessage(messages.SearchInput)} value={temp} onChange={this.onChange} name='temp' />
                 <Button disabled={isLoading || invalid} inverted><FormattedMessage id={ 'Search.Button' } defaultMessage={ 'Execute' } /></Button>
               </Form> 
 
