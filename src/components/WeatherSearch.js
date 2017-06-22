@@ -32,14 +32,14 @@ class WeatherSearch extends React.Component {
         const isValid = Object.keys(errors).length === 0
         if (isValid) {
              this.setState({ loading: true });
-              lang = navigator.language
+              lang = localStorage.getItem('locale')
               this.props.fetchWheater(this.state.temp, lang)
                 this.setState({temp: ''})
         };
        }  
         render() {
           const { formatMessage } = this.props.intl;
-          const { temp, error, isLoading, invalid} = this.state;
+          const { temp, error, isLoading, invalid } = this.state;
           const { onSubmit } = this.props;
             return(
             

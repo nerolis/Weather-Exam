@@ -10,8 +10,8 @@ import { Message } from 'semantic-ui-react';
 class WeatherList extends React.Component {
     render() { 
     const {weather, removeCity} = this.props
-       if (this.props.weather.length === 0) return  <Message><FormattedMessage id={ 'City.List.isEmpty' } defaultMessage={ 'City list is empty.' }/></Message>
-            else return <div> {weather.map(weather => <WeatherCity weather={weather} key={weather.id} removeCity={removeCity}  />)} </div> 
+       if (weather.length === 0) return  <Message><FormattedMessage id={ 'City.List.isEmpty' } defaultMessage={ 'City list is empty.' }/></Message>
+            else return <div>{weather.map(weather => <WeatherCity weather={weather} key={weather.id} removeCity={removeCity}  />)}</div> 
         }
     }
 

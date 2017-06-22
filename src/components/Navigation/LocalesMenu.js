@@ -16,16 +16,17 @@ addLocaleData([...en, ...ru])
 class LocalesMenu extends React.Component {
   constructor() {
     super();
-      this.state = {locale: navigator.language};
+      this.state = {locale: navigator.language.toLowerCase().split(/[_-]+/)[0]}; // eto legalno?
     }
   
-    // пока сойдет. todo: зарефакторить через локалсторадж
+    // Восстановление стейта после релоада. todo: переделать через стораж
      componentDidMount() {
-      if (window.location.hash === '#ru') {
-         this.state.locale != 'ru' ? this.setState({locale: 'ru'}) : ''} 
-      if (window.location.hash === '#en') {
-         this.state.locale != 'en' ? this.setState({locale: 'en'}) : ''}
-     }
+     this.localLang()
+    }
+    localLang() {
+     const localLanguage = localStorage.getItem('locale');
+     this.setState({locale: localLanguage})
+    }
          render() {
          const intlData = { locale: this.state.locale,  messages: localeData[this.state.locale]};
          return (
@@ -34,10 +35,10 @@ class LocalesMenu extends React.Component {
              <div className="ui container">
                 <div className="ui secondar color blue  inverted  four item menu">
                     <Menu.Item >
-                     <Link onClick={(() => this.setState({locale: 'en'}))} to='/#en'>En</Link>
+                     <Link onClick={(() => this.setState({locale: 'en'}, localStorage.setItem('locale', 'en')))} to='/#en'>En</Link>
                    </Menu.Item>    
                    <Menu.Item >
-                     <Link onClick={(() => this.setState({locale: 'ru'}))} to='/#ru'>Ru</Link>
+                     <Link onClick={(() => this.setState({locale: 'ru'}, localStorage.setItem('locale', 'ru')))} to='/#ru'>Ru</Link>
                   </Menu.Item>  
                </div>
               <Route  exact path='/' component={App} /> 
@@ -53,4 +54,4 @@ class LocalesMenu extends React.Component {
   <Link className={match ? 'active item' : 'item'} to={to}>{label}</Link>
   )}/>
 );
-export default connect(null, )(LocalesMenu);
+export default connect(null, {})(LocalesMenu);
