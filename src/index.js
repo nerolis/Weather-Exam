@@ -24,7 +24,6 @@ const store = createStore(
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )
 );
-
 store.subscribe(() => {
  saveState({
   weather: store.getState().weather,

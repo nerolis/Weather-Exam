@@ -9,18 +9,14 @@ import WeatherSearch from './WeatherSearch';
 import WeatherList from './WeatherList';
 import WeatherByLocation from './WeatherByLocation';
 const App = () => (
-
       <Grid relaxed  columns={2}>
-      
-          <Grid.Column> 
+        <Grid.Column> 
             <WeatherByLocation />
-             </Grid.Column>
-                <Grid.Column className='color white' verticalAlign='bottom'>
-                   <WeatherList />
-                   <WeatherSearch />
-                </Grid.Column>
-       
-  
+        </Grid.Column>
+          <Grid.Column verticalAlign='bottom'>
+            <WeatherList />
+            <WeatherSearch />
+         </Grid.Column>
       </Grid>    
    
 )

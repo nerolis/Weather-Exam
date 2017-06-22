@@ -19,15 +19,13 @@ class LocalesMenu extends React.Component {
       this.state = {locale: navigator.language};
     }
   
-    // Восстановление стейта после релоада. Я, конечно, мог бы опять же, сделать через локалсторадж, либо просто через навигатор, но и так сойдет.
+    // пока сойдет. todo: зарефакторить через локалсторадж
      componentDidMount() {
       if (window.location.hash === '#ru') {
          this.state.locale != 'ru' ? this.setState({locale: 'ru'}) : ''} 
       if (window.location.hash === '#en') {
          this.state.locale != 'en' ? this.setState({locale: 'en'}) : ''}
      }
-
-      
          render() {
          const intlData = { locale: this.state.locale,  messages: localeData[this.state.locale]};
          return (

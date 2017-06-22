@@ -27,7 +27,7 @@ class WeatherByLocation extends React.Component {
 
    geoLocationSucces = (position, lang) => {
     const { coords } = position;
-    lang = navigator.language
+    lang = navigator.language;
     this.props.fetchLocation(coords.latitude, coords.longitude, lang)
   }
      render() {

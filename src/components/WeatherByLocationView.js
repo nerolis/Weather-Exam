@@ -22,11 +22,10 @@ import fetchLocation from '../Actions/locationAction';
              <Segment  size='massive' color='blue' inverted as='h1'>{location.name}</Segment>  
              <Button  size='massive' color='blue'   onClick={this.toggle}>{KelvinTo ? ` °C ${location.main.temp.toFixed(0) - 273}` : `°F ${Math.round(location.main.temp*9/5-460)}`}</Button>
              <Icon size='big' name='time'/><FormattedRelative value={location.dt*1000}/>  
-             <Segment color='blue' inverted>
-             <Image className='centered' src={`http://openweathermap.org/img/w/${location.weather[0].icon}.png`} size='small' /></Segment>
-              <Segment color='blue' inverted size='massive'>{location.weather[0].description}</Segment>
+                 <Segment color='blue' inverted>
+                     <Image className='centered' src={`http://openweathermap.org/img/w/${location.weather[0].icon}.png`} size='small' /></Segment>
+                 <Segment color='blue' inverted size='massive'>{location.weather[0].description}</Segment>
             <Segment size='large' color='blue' inverted>
-            
             <FormattedTime value={new Date(Date.now())} />
             <br></br>
             <FormattedDate
@@ -34,8 +33,7 @@ import fetchLocation from '../Actions/locationAction';
                 month='long'
                 day='2-digit'
                 />      
-            </Segment >  
-                       
+            </Segment >          
         </Segment.Group>
        
             
