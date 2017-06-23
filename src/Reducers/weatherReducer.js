@@ -1,4 +1,4 @@
-import { FETCH_WEATHER, CITY_DELETED } from '../Actions/types';
+import { FETCH_WEATHER, CITY_DELETED, CITY_UPDATE, SET_WEATHER} from '../Actions/types';
 
 export default function weather(state= [], action = {}) {
   switch (action.type) {
@@ -7,8 +7,17 @@ export default function weather(state= [], action = {}) {
         ...state,
         action.data
       ];
+     case CITY_UPDATE:
+       const updatedCity = state.map(weather => {
+        if(weather !== action.data){
+          return { ...weather, ...action.data }
+        }
+        return weather
+      })
+      return updatedCity
     case CITY_DELETED:
       return state.filter(weather => weather.id !== action.weatherId)
+        
   } 
-  return state;
+  return state
 }

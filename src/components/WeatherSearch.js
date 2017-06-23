@@ -1,7 +1,7 @@
 // Modules
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Form, Input, Message, Label } from 'semantic-ui-react'
+import { Button, Form, Input, Message, Label, Checkbox } from 'semantic-ui-react'
 import { intlShape, injectIntl, defineMessages, FormattedMessage } from 'react-intl';
 // Actions
 import fetchWheater from '../Actions/weatherAction';
@@ -43,7 +43,7 @@ class WeatherSearch extends React.Component {
           const { onSubmit } = this.props;
             return(
             
-              <Form onSubmit={this.onSubmit}>
+              <Form onSubmit={this.onSubmit}> 
                 <Input error={error} type='text' placeholder={formatMessage(messages.SearchInput)} value={temp} onChange={this.onChange} name='temp' />
                 <Button disabled={isLoading || invalid} inverted><FormattedMessage id={ 'Search.Button' } defaultMessage={ 'Execute' } /></Button>
               </Form> 

@@ -12,10 +12,10 @@ class WeatherCity extends React.Component {
     toggle = () => this.setState({ KelvinTo: !this.state.KelvinTo })
     
     render() {
-    const { weather, removeCity, } = this.props
+    const { weather, removeCity, updateCity } = this.props
     const { KelvinTo } = this.state;
         return(
-        <Table color='blue' selectable  inverted size='large'  >
+ <Table color='blue' selectable  inverted size='large'  >
             <Table.Header>
             <Table.Row>
                 <Table.HeaderCell>
@@ -51,6 +51,7 @@ class WeatherCity extends React.Component {
                             </Table.Body>
                             <Table.Footer>
                     <Button icon='close' inverted size='mini' onClick={() => removeCity(weather.id)}></Button>
+                    <Button inverted size='mini' onClick={() => updateCity(weather.name, weather.sys.country)} icon='refresh'></Button>
                             <Table.Row>
                             </Table.Row>
                             </Table.Footer>
