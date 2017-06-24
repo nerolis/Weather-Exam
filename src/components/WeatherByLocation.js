@@ -10,7 +10,7 @@ import WeatherByLocationView from './WeatherByLocationView';
 import fetchLocation from '../Actions/locationAction';
 
 class WeatherByLocation extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
       this.getLocation()
     }
     

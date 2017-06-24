@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Form, Input, Message, Card, Icon, Image, Header, Table, Checkbox } from 'semantic-ui-react';
 import { intlShape, injectIntl, defineMessages, FormattedMessage, FormattedRelative } from 'react-intl'
+import WeatherMap from './WeatherMap';
 // Components
 class WeatherCity extends React.Component {
     constructor() {
@@ -15,6 +16,8 @@ class WeatherCity extends React.Component {
     const { weather, removeCity, updateCity } = this.props
     const { KelvinTo } = this.state;
         return(
+<div>
+<WeatherMap weather={weather} />
  <Table color='blue' selectable  inverted size='large'  >
             <Table.Header>
             <Table.Row>
@@ -56,6 +59,7 @@ class WeatherCity extends React.Component {
                             </Table.Row>
                             </Table.Footer>
                     </Table>
+                    </div>
      )
   }
 }

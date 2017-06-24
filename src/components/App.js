@@ -14,8 +14,8 @@ const App = () => (
             <WeatherByLocation />
         </Grid.Column>
           <Grid.Column verticalAlign='bottom'>
+            
             <WeatherList />
-            <WeatherSearch />
          </Grid.Column>
       </Grid>    
    

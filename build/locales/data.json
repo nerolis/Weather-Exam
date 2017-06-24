@@ -3,10 +3,10 @@
   "Search.Date": "Время",
   "Search.Temp": "Температура",
   "Search.Weather": "Погода",
-  "Search.Input": "Поиск по имени города",
+  "Search.Input": "Погода по городу",
   "Search.Button": "Поиск",
   "Search.Delete": "Удалить",
   "Search.Temp.Button": "Температура",
-  "City.List.isEmpty": "Список городов пуст."
+  "City.List.isEmpty": "Список пуст."
 } }
 

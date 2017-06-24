@@ -45,7 +45,7 @@ class WeatherSearch extends React.Component {
             
               <Form onSubmit={this.onSubmit}> 
                 <Input error={error} type='text' placeholder={formatMessage(messages.SearchInput)} value={temp} onChange={this.onChange} name='temp' />
-                <Button disabled={isLoading || invalid} inverted><FormattedMessage id={ 'Search.Button' } defaultMessage={ 'Execute' } /></Button>
+                <Button disabled={isLoading || invalid} inverted><FormattedMessage id={ 'Search.Button' } defaultMessage={ 'Search' } /></Button>
               </Form> 
 
  )};
@@ -54,7 +54,7 @@ class WeatherSearch extends React.Component {
 const messages = defineMessages({
     SearchInput: {
         id: 'Search.Input',
-        defaultMessage: 'Search by city name',
+        defaultMessage: 'Weather by city',
     },
 });
 export default injectIntl(connect(null, {fetchWheater})(WeatherSearch));

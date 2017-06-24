@@ -7,14 +7,16 @@ import { updateCity, removeCity }  from '../Actions/weatherAction';
 // Components
 import WeatherCity from './WeatherCity';
 import { Message } from 'semantic-ui-react';
-import { v4 } from 'node-uuid'
+import WeatherSearch from './WeatherSearch'
 class WeatherList extends React.Component {
     render() { 
     const { weather, removeCity, updateCity } = this.props
-       if (weather.length === 0) return  <Message><FormattedMessage id={ 'City.List.isEmpty' } defaultMessage={ 'City list is empty.' }/></Message>
-            else return <div>{weather.map((weather) => <WeatherCity weather={weather} key={weather.id} removeCity={removeCity} updateCity={updateCity}  />)}</div> 
-        }
+       if (weather.length === 0 ) return <div> <Message><FormattedMessage id={ 'City.List.isEmpty' } defaultMessage={ 'List is empty' }/></Message>
+          <WeatherSearch /> </div>
+       else return  <div>{weather.map(weather => <WeatherCity weather={weather} key={weather.id} removeCity={removeCity} updateCity={updateCity} />)}
+       </div> 
     }
+ }
 
 const mapStateToProps = (state) => {
     return {
