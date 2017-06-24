@@ -1,0 +1,10 @@
+[
+  {
+    "id": "Map.Speed",
+    "defaultMessage": "Wind:"
+  },
+  {
+    "id": "Map.Humidity",
+    "defaultMessage": "Humidity:"
+  }
+]

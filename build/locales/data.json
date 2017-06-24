@@ -7,6 +7,9 @@
   "Search.Button": "Поиск",
   "Search.Delete": "Удалить",
   "Search.Temp.Button": "Температура",
-  "City.List.isEmpty": "Список пуст."
+  "City.List.isEmpty": "Список пуст.",
+  "Map.Humidity": "Влажность:",
+  "Map.Speed": "Ветер:"
+  
 } }
 
